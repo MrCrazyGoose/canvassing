@@ -246,11 +246,9 @@ function renderList() {
 
   // Sort
   if (sort === 'nearest' && userLat !== null) {
-    filtered.sort((a,b) => {
-      const da = a.lat ? dist(userLat,userLng,a.lat,a.lng) : 999999;
-      const db = b.lat ? dist(userLat,userLng,b.lat,b.lng) : 999999;
-      return da - db;
-    });
+    // Only include geocoded addresses so distances are real
+    filtered = filtered.filter(h => h.lat);
+    filtered.sort((a,b) => dist(userLat,userLng,a.lat,a.lng) - dist(userLat,userLng,b.lat,b.lng));
   } else if (sort === 'street') {
     filtered.sort((a,b) => {
       const sa = a.address.replace(/^\d+\s+/,'');
@@ -269,7 +267,7 @@ function renderList() {
   }
 
   const container = document.getElementById('hh-list');
-  const showing = Math.min(filtered.length, 150);
+  const showing = Math.min(filtered.length, sort === 'nearest' ? 300 : 150);
   document.getElementById('result-info').textContent =
     `${filtered.length.toLocaleString()} households${filtered.length > showing ? ` — showing ${showing}` : ''}`;
 
