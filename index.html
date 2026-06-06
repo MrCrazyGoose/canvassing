@@ -15,86 +15,85 @@
   --green:#2d7d46;--red:#c0392b;--amber:#d68910;
   --font:'DM Sans',sans-serif;--mono:'DM Mono',monospace;--r:10px;
 }
-body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
-.header{background:var(--navy);color:#fff;padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:1000}
-.header-title{font-size:16px;font-weight:600}
+body{font-family:var(--font);background:var(--bg);color:var(--text);height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+.header{background:var(--navy);color:#fff;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.header-title{font-size:15px;font-weight:600}
 .header-title span{color:var(--gold)}
-.header-stats{display:flex;gap:10px;font-size:12px;font-family:var(--mono)}
-.stat-pill{background:rgba(255,255,255,0.12);padding:4px 10px;border-radius:20px}
+.header-stats{display:flex;gap:8px;font-size:11px;font-family:var(--mono)}
+.stat-pill{background:rgba(255,255,255,0.12);padding:3px 8px;border-radius:20px}
 .stat-pill b{color:var(--gold)}
-.tabs{display:flex;background:var(--navy);border-top:1px solid rgba(255,255,255,0.1)}
-.tab{flex:1;padding:10px;text-align:center;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);cursor:pointer;border:none;background:none;transition:all .2s}
+.tabs{display:flex;background:var(--navy);border-top:1px solid rgba(255,255,255,0.1);flex-shrink:0}
+.tab{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:500;color:rgba(255,255,255,0.5);cursor:pointer;border:none;background:none}
 .tab.active{color:#fff;border-bottom:2px solid var(--gold)}
-.content{flex:1;overflow:hidden;display:flex;flex-direction:column}
-#list-view,#map-view{flex:1;overflow:hidden;display:none;flex-direction:column}
+.content{flex:1;overflow:hidden;display:flex;flex-direction:column;min-height:0}
+#list-view,#map-view{flex:1;overflow:hidden;display:none;flex-direction:column;min-height:0}
 #list-view.active,#map-view.active{display:flex}
-.filter-bar{padding:10px 16px;background:var(--card);border-bottom:1px solid var(--border);display:flex;gap:8px;flex-wrap:wrap}
-.filter-bar input{flex:1;min-width:150px;padding:8px 12px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:13px;background:var(--bg);outline:none}
+.filter-bar{padding:8px 12px;background:var(--card);border-bottom:1px solid var(--border);display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+.filter-bar input{flex:1;min-width:130px;padding:7px 10px;border:1px solid var(--border);border-radius:8px;font-family:var(--font);font-size:13px;background:var(--bg);outline:none}
 .filter-bar input:focus{border-color:var(--navy)}
-.filter-bar select{padding:8px 10px;border:1px solid var(--border);border-radius:var(--r);font-family:var(--font);font-size:13px;background:var(--bg);outline:none;cursor:pointer}
-.progress-wrap{padding:8px 16px;background:var(--card);border-bottom:1px solid var(--border)}
-.progress-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-bottom:4px;font-family:var(--mono)}
-.progress-bar{height:6px;background:var(--border);border-radius:3px;overflow:hidden;display:flex}
+.filter-bar select{padding:7px 8px;border:1px solid var(--border);border-radius:8px;font-family:var(--font);font-size:12px;background:var(--bg);outline:none;cursor:pointer}
+.progress-wrap{padding:6px 12px;background:var(--card);border-bottom:1px solid var(--border);flex-shrink:0}
+.progress-labels{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-bottom:3px;font-family:var(--mono)}
+.progress-bar{height:5px;background:var(--border);border-radius:3px;overflow:hidden;display:flex}
 .prog-voted{background:var(--green);transition:width .3s}
 .prog-nothome{background:var(--amber);transition:width .3s}
 .prog-refused{background:var(--red);transition:width .3s}
-.hh-list{overflow-y:auto;flex:1;padding:10px 16px;display:flex;flex-direction:column;gap:7px}
-.hh-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:10px}
-.hh-card:hover{border-color:var(--navy)}
+.hh-list{overflow-y:auto;flex:1;padding:8px 12px;display:flex;flex-direction:column;gap:6px}
+.hh-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:11px 13px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:border-color .15s}
+.hh-card:active{background:var(--bg)}
 .hh-card.status-voted{border-left:4px solid var(--green)}
 .hh-card.status-not_home{border-left:4px solid var(--amber)}
 .hh-card.status-refused{border-left:4px solid var(--red)}
-.hh-icon{width:36px;height:36px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;font-weight:600;color:var(--navy)}
+.hh-icon{width:34px;height:34px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;font-weight:600;color:var(--navy)}
 .hh-icon.status-voted{background:#e8f5ee;color:var(--green)}
 .hh-icon.status-not_home{background:#fef9e7;color:var(--amber)}
 .hh-icon.status-refused{background:#fdecea;color:var(--red)}
 .hh-info{flex:1;min-width:0}
 .hh-address{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hh-meta{font-size:11px;color:var(--muted);margin-top:2px;font-family:var(--mono)}
-.hh-badge{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;flex-shrink:0}
+.hh-meta{font-size:11px;color:var(--muted);margin-top:1px;font-family:var(--mono)}
+.hh-badge{font-size:10px;padding:2px 6px;border-radius:10px;font-weight:500;flex-shrink:0;white-space:nowrap}
 .badge-unvisited{background:var(--bg);color:var(--muted);border:1px solid var(--border)}
 .badge-voted{background:#e8f5ee;color:var(--green)}
 .badge-not_home{background:#fef9e7;color:var(--amber)}
 .badge-refused{background:#fdecea;color:var(--red)}
-#map{flex:1;z-index:1}
-.map-legend{background:var(--card);padding:8px 16px;border-top:1px solid var(--border);display:flex;gap:14px;font-size:11px;align-items:center;flex-wrap:wrap}
-.legend-item{display:flex;align-items:center;gap:5px}
-.legend-dot{width:10px;height:10px;border-radius:50%}
+#map{flex:1;z-index:1;min-height:0}
+.map-legend{background:var(--card);padding:6px 12px;border-top:1px solid var(--border);display:flex;gap:12px;font-size:11px;align-items:center;flex-wrap:wrap;flex-shrink:0}
+.legend-item{display:flex;align-items:center;gap:4px}
+.legend-dot{width:9px;height:9px;border-radius:50%}
+.map-geocode-bar{background:var(--card);padding:6px 12px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);flex-shrink:0}
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;align-items:flex-end;justify-content:center}
 .modal-overlay.open{display:flex}
-.modal{background:var(--card);border-radius:var(--r) var(--r) 0 0;width:100%;max-width:520px;max-height:85vh;overflow-y:auto;padding:22px;animation:slideUp .2s ease}
-@keyframes slideUp{from{transform:translateY(40px);opacity:0}to{transform:translateY(0);opacity:1}}
-.modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 18px}
-.modal-address{font-size:18px;font-weight:600;margin-bottom:3px}
+.modal{background:var(--card);border-radius:16px 16px 0 0;width:100%;max-width:520px;max-height:88dvh;overflow-y:auto;padding:20px;animation:slideUp .2s ease}
+@keyframes slideUp{from{transform:translateY(30px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-handle{width:36px;height:4px;background:var(--border);border-radius:2px;margin:0 auto 16px}
+.modal-address{font-size:17px;font-weight:600;margin-bottom:2px}
 .modal-city{font-size:12px;color:var(--muted);margin-bottom:14px;font-family:var(--mono)}
-.members-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500;margin-bottom:7px}
-.members-list{display:flex;flex-direction:column;gap:5px;margin-bottom:18px}
-.member-row{background:var(--bg);border-radius:6px;padding:7px 12px;font-size:13px;display:flex;align-items:center;gap:8px}
+.members-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500;margin-bottom:6px}
+.members-list{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
+.member-row{background:var(--bg);border-radius:6px;padding:7px 11px;font-size:13px;display:flex;align-items:center;gap:7px}
 .member-row::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--navy);flex-shrink:0}
-.action-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500;margin-bottom:9px}
-.action-btns{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.action-btn{flex:1;min-width:85px;padding:11px 8px;border:2px solid var(--border);border-radius:var(--r);background:var(--card);font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s;text-align:center}
-.action-btn:hover{border-color:var(--navy)}
-.action-btn.active-voted{background:var(--green);border-color:var(--green);color:#fff}
-.action-btn.active-not_home{background:var(--amber);border-color:var(--amber);color:#fff}
-.action-btn.active-refused{background:var(--red);border-color:var(--red);color:#fff}
-.modal-close{width:100%;padding:10px;border:1px solid var(--border);border-radius:var(--r);background:none;font-family:var(--font);font-size:14px;cursor:pointer;color:var(--muted)}
-.modal-close:hover{background:var(--bg)}
-.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:12px;color:var(--muted)}
-.spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite}
+.action-label{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);font-weight:500;margin-bottom:8px}
+.action-btns{display:flex;gap:8px;margin-bottom:14px}
+.action-btn{flex:1;padding:13px 6px;border:2px solid var(--border);border-radius:var(--r);background:var(--card);font-family:var(--font);font-size:13px;font-weight:500;cursor:pointer;text-align:center;transition:all .15s}
+.action-btn.sel-voted{background:var(--green);border-color:var(--green);color:#fff}
+.action-btn.sel-not_home{background:var(--amber);border-color:var(--amber);color:#fff}
+.action-btn.sel-refused{background:var(--red);border-color:var(--red);color:#fff}
+.modal-close{width:100%;padding:11px;border:1px solid var(--border);border-radius:var(--r);background:none;font-family:var(--font);font-size:14px;cursor:pointer;color:var(--muted)}
+.loading{display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:10px;color:var(--muted)}
+.spinner{width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--navy);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.empty-state{text-align:center;padding:48px 24px;color:var(--muted)}
-.phone-tag{display:inline-block;background:#e8f0fb;color:#1a6bbd;font-size:10px;padding:2px 6px;border-radius:4px;font-family:var(--mono);margin-left:6px;vertical-align:middle}
-.result-count{font-size:11px;color:var(--muted);padding:4px 16px;font-family:var(--mono)}
+.phone-tag{display:inline-block;background:#e8f0fb;color:#1a6bbd;font-size:10px;padding:1px 5px;border-radius:4px;font-family:var(--mono);margin-left:5px;vertical-align:middle}
+.result-info{font-size:11px;color:var(--muted);padding:4px 12px;font-family:var(--mono);flex-shrink:0}
+.loc-btn{background:var(--navy);color:#fff;border:none;border-radius:6px;padding:4px 10px;font-size:11px;cursor:pointer;font-family:var(--font);white-space:nowrap}
 </style>
 </head>
 <body>
 <div class="header">
   <div class="header-title">D15 Canvass <span>· Milan van Dam</span></div>
   <div class="header-stats">
-    <div class="stat-pill">Knocked: <b id="h-knocked">0</b></div>
-    <div class="stat-pill">Voted: <b id="h-voted">0</b></div>
-    <div class="stat-pill">Left: <b id="h-left">—</b></div>
+    <div class="stat-pill">✓<b id="h-voted">0</b></div>
+    <div class="stat-pill">○<b id="h-nothome">0</b></div>
+    <div class="stat-pill">Left:<b id="h-left">—</b></div>
   </div>
 </div>
 <div class="tabs">
@@ -104,21 +103,25 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
 <div class="content">
   <div id="list-view" class="active">
     <div class="filter-bar">
-      <input type="text" id="search" placeholder="Search address or name..." oninput="debounceRender()">
-      <select id="city-filter" onchange="renderList()">
-        <option value="">All cities</option>
-      </select>
+      <input type="text" id="search" placeholder="Search address or name…" oninput="debounce()">
+      <select id="city-filter" onchange="renderList()"><option value="">All cities</option></select>
       <select id="status-filter" onchange="renderList()">
-        <option value="">All statuses</option>
+        <option value="">All</option>
         <option value="unvisited">Unvisited</option>
         <option value="voted">Voted</option>
         <option value="not_home">Not home</option>
         <option value="refused">Refused</option>
       </select>
+      <select id="sort-mode" onchange="renderList()">
+        <option value="priority">By priority</option>
+        <option value="nearest">Nearest first</option>
+        <option value="street">By street</option>
+        <option value="city">By city</option>
+      </select>
     </div>
     <div class="progress-wrap">
       <div class="progress-labels">
-        <span id="prog-text">Loading...</span>
+        <span id="prog-text">Loading…</span>
         <span id="prog-breakdown"></span>
       </div>
       <div class="progress-bar">
@@ -127,13 +130,17 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
         <div class="prog-refused" id="prog-refused" style="width:0%"></div>
       </div>
     </div>
-    <div id="loading-state" class="loading"><div class="spinner"></div><span>Loading households...</span></div>
+    <div id="loading-state" class="loading"><div class="spinner"></div><span>Loading households…</span></div>
+    <div class="result-info" id="result-info" style="display:none"></div>
     <div class="hh-list" id="hh-list" style="display:none"></div>
   </div>
   <div id="map-view">
+    <div class="map-geocode-bar">
+      <span id="geocode-status">Tap a pin to open a household. Pins load as you pan.</span>
+      <button class="loc-btn" onclick="locateMe()">📍 My location</button>
+    </div>
     <div id="map"></div>
     <div class="map-legend">
-      <span style="font-weight:500;font-size:11px;color:var(--muted)">Legend:</span>
       <div class="legend-item"><div class="legend-dot" style="background:#1a3a6b"></div>Unvisited</div>
       <div class="legend-item"><div class="legend-dot" style="background:#2d7d46"></div>Voted</div>
       <div class="legend-item"><div class="legend-dot" style="background:#d68910"></div>Not home</div>
@@ -141,7 +148,9 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     </div>
   </div>
 </div>
-<div class="modal-overlay" id="modal" onclick="closeModal(event)">
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-handle"></div>
     <div class="modal-address" id="m-address"></div>
@@ -150,217 +159,307 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:1
     <div class="members-list" id="m-members"></div>
     <div class="action-label">Record outcome</div>
     <div class="action-btns">
-      <button class="action-btn" id="btn-voted" onclick="setStatus('voted')">✓ Voted / Committed</button>
+      <button class="action-btn" id="btn-voted" onclick="setStatus('voted')">✓ Voted</button>
       <button class="action-btn" id="btn-not_home" onclick="setStatus('not_home')">○ Not Home</button>
       <button class="action-btn" id="btn-refused" onclick="setStatus('refused')">✕ Refused</button>
     </div>
     <button class="modal-close" onclick="closeModal()">Done</button>
   </div>
 </div>
+
 <script>
-let HOUSEHOLDS = [];
+let HH = [];
 let results = {};
-let currentHH = null;
+let currentIdx = null;
 let map = null;
-let markers = {};
-let renderTimer = null;
+let markerLayer = null;
+let userLat = null, userLng = null;
+let debTimer = null;
+const STORAGE_KEY = 'd15_canvass_v3';
 
 function loadResults() {
-  try { results = JSON.parse(localStorage.getItem('d15_canvass_v2') || '{}'); } catch(e) { results = {}; }
+  try { results = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { results = {}; }
 }
 function saveResults() {
-  try { localStorage.setItem('d15_canvass_v2', JSON.stringify(results)); } catch(e) {}
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(results)); } catch(e) {}
 }
 
 function getStats() {
   const voted = Object.values(results).filter(v=>v==='voted').length;
-  const not_home = Object.values(results).filter(v=>v==='not_home').length;
-  const refused = Object.values(results).filter(v=>v==='refused').length;
-  const total = HOUSEHOLDS.length;
-  const knocked = voted + not_home + refused;
-  return {voted, not_home, refused, knocked, total, left: total - knocked};
+  const nh = Object.values(results).filter(v=>v==='not_home').length;
+  const ref = Object.values(results).filter(v=>v==='refused').length;
+  const knocked = voted + nh + ref;
+  return {voted, nh, ref, knocked, left: HH.length - knocked};
 }
 
 function updateHeader() {
   const s = getStats();
-  document.getElementById('h-knocked').textContent = s.knocked;
   document.getElementById('h-voted').textContent = s.voted;
+  document.getElementById('h-nothome').textContent = s.nh;
   document.getElementById('h-left').textContent = s.left;
-  const pv = s.total ? (s.voted/s.total*100).toFixed(1) : 0;
-  const pn = s.total ? (s.not_home/s.total*100).toFixed(1) : 0;
-  const pr = s.total ? (s.refused/s.total*100).toFixed(1) : 0;
-  document.getElementById('prog-voted').style.width = pv+'%';
-  document.getElementById('prog-nothome').style.width = pn+'%';
-  document.getElementById('prog-refused').style.width = pr+'%';
-  document.getElementById('prog-text').textContent = `${s.knocked} / ${s.total} visited`;
-  document.getElementById('prog-breakdown').textContent = `✓${s.voted} ○${s.not_home} ✕${s.refused}`;
+  const t = HH.length;
+  document.getElementById('prog-voted').style.width = t ? (s.voted/t*100)+'%' : '0%';
+  document.getElementById('prog-nothome').style.width = t ? (s.nh/t*100)+'%' : '0%';
+  document.getElementById('prog-refused').style.width = t ? (s.ref/t*100)+'%' : '0%';
+  document.getElementById('prog-text').textContent = `${s.knocked} / ${t} visited`;
+  document.getElementById('prog-breakdown').textContent = `✓${s.voted} ○${s.nh} ✕${s.ref}`;
 }
 
 function switchTab(tab) {
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',(i===0&&tab==='list')||(i===1&&tab==='map')));
   document.getElementById('list-view').classList.toggle('active', tab==='list');
   document.getElementById('map-view').classList.toggle('active', tab==='map');
-  if (tab==='map' && !map) initMap();
-  if (tab==='map' && map) setTimeout(()=>map.invalidateSize(),100);
+  if (tab==='map') { if (!map) initMap(); else setTimeout(()=>map.invalidateSize(),100); }
 }
 
 function initFilters() {
-  const cities = [...new Set(HOUSEHOLDS.map(h=>h.city))].sort();
+  const cities = [...new Set(HH.map(h=>h.city))].sort();
   const sel = document.getElementById('city-filter');
   cities.forEach(c => { const o = document.createElement('option'); o.value=c; o.textContent=c; sel.appendChild(o); });
 }
 
-function statusLabel(s) { return !s?'Unvisited':s==='voted'?'Voted':s==='not_home'?'Not Home':'Refused'; }
-function statusIcon(s) { return !s?'⬜':s==='voted'?'✓':s==='not_home'?'○':'✕'; }
-
-function debounceRender() {
-  clearTimeout(renderTimer);
-  renderTimer = setTimeout(renderList, 250);
+function dist(lat1,lng1,lat2,lng2) {
+  const R=6371e3, p1=lat1*Math.PI/180, p2=lat2*Math.PI/180;
+  const dp=(lat2-lat1)*Math.PI/180, dl=(lng2-lng1)*Math.PI/180;
+  const a=Math.sin(dp/2)**2+Math.cos(p1)*Math.cos(p2)*Math.sin(dl/2)**2;
+  return R*2*Math.atan2(Math.sqrt(a),Math.sqrt(1-a));
 }
+
+function debounce() { clearTimeout(debTimer); debTimer = setTimeout(renderList, 220); }
 
 function renderList() {
   const search = document.getElementById('search').value.toLowerCase().trim();
   const city = document.getElementById('city-filter').value;
   const statusF = document.getElementById('status-filter').value;
+  const sort = document.getElementById('sort-mode').value;
 
-  let filtered = HOUSEHOLDS.filter(h => {
-    const st = results[h.id] || null;
-    const stKey = st || 'unvisited';
+  let filtered = HH.filter((h,i) => {
+    const st = results[i] || null;
     if (city && h.city !== city) return false;
-    if (statusF && stKey !== statusF) return false;
+    if (statusF && (st||'unvisited') !== statusF) return false;
     if (search) {
-      const haystack = (h.address + ' ' + h.city + ' ' + h.members.join(' ')).toLowerCase();
-      if (!haystack.includes(search)) return false;
+      const hay = (h.address+' '+h.city+' '+h.members.join(' ')).toLowerCase();
+      if (!hay.includes(search)) return false;
     }
     return true;
   });
 
-  filtered.sort((a,b) => {
-    const sa = results[a.id] ? 1 : 0;
-    const sb = results[b.id] ? 1 : 0;
-    if (sa !== sb) return sa - sb;
-    return b.count - a.count;
-  });
+  // Sort
+  if (sort === 'nearest' && userLat !== null) {
+    filtered.sort((a,b) => {
+      const da = a.lat ? dist(userLat,userLng,a.lat,a.lng) : 999999;
+      const db = b.lat ? dist(userLat,userLng,b.lat,b.lng) : 999999;
+      return da - db;
+    });
+  } else if (sort === 'street') {
+    filtered.sort((a,b) => {
+      const sa = a.address.replace(/^\d+\s+/,'');
+      const sb = b.address.replace(/^\d+\s+/,'');
+      return sa.localeCompare(sb) || parseInt(a.address) - parseInt(b.address);
+    });
+  } else if (sort === 'city') {
+    filtered.sort((a,b) => a.city.localeCompare(b.city) || a.address.localeCompare(b.address));
+  } else {
+    // priority: unvisited first, then by count desc
+    filtered.sort((a,b) => {
+      const sa = results[HH.indexOf(a)] ? 1 : 0;
+      const sb = results[HH.indexOf(b)] ? 1 : 0;
+      return sa - sb || b.count - a.count;
+    });
+  }
 
   const container = document.getElementById('hh-list');
   const showing = Math.min(filtered.length, 150);
+  document.getElementById('result-info').textContent =
+    `${filtered.length.toLocaleString()} households${filtered.length > showing ? ` — showing ${showing}` : ''}`;
 
   if (filtered.length === 0) {
-    container.innerHTML = '<div class="empty-state"><div>🚪</div><p>No households match your filters.</p></div>';
+    container.innerHTML = '<div style="text-align:center;padding:40px;color:var(--muted)">No results</div>';
     return;
   }
 
   container.innerHTML = filtered.slice(0, showing).map(h => {
-    const st = results[h.id] || null;
+    const idx = HH.indexOf(h);
+    const st = results[idx] || null;
     const stKey = st || 'unvisited';
-    const phoneTag = h.hasPhone ? '<span class="phone-tag">📞</span>' : '';
-    return `<div class="hh-card status-${stKey}" onclick="openModal('${CSS.escape(h.id)}')">
-      <div class="hh-icon status-${stKey}">${statusIcon(st)}</div>
+    const icon = !st ? '⬜' : st==='voted' ? '✓' : st==='not_home' ? '○' : '✕';
+    const label = !st ? 'Unvisited' : st==='voted' ? 'Voted' : st==='not_home' ? 'Not Home' : 'Refused';
+    const phone = h.hasPhone ? '<span class="phone-tag">📞</span>' : '';
+    const distStr = (sort==='nearest' && userLat && h.lat)
+      ? ` · ${(dist(userLat,userLng,h.lat,h.lng)/1609.34).toFixed(1)}mi` : '';
+    return `<div class="hh-card status-${stKey}" onclick="openModal(${idx})">
+      <div class="hh-icon status-${stKey}">${icon}</div>
       <div class="hh-info">
-        <div class="hh-address">${h.address}${phoneTag}</div>
-        <div class="hh-meta">${h.city}, MD ${h.zip} · ${h.count} dem${h.count>1?'s':''}</div>
+        <div class="hh-address">${h.address}${phone}</div>
+        <div class="hh-meta">${h.city}, MD ${h.zip} · ${h.count} dem${h.count>1?'s':''}${distStr}</div>
       </div>
-      <span class="hh-badge badge-${stKey}">${statusLabel(st)}</span>
+      <span class="hh-badge badge-${stKey}">${label}</span>
     </div>`;
   }).join('');
-
-  if (filtered.length > showing) {
-    container.innerHTML += `<div class="result-count">Showing ${showing} of ${filtered.length.toLocaleString()} — use filters or search to narrow down.</div>`;
-  }
 }
 
-function openModal(escapedId) {
-  const id = escapedId.replace(/\\([^\\])/g, '$1');
-  currentHH = HOUSEHOLDS.find(h => h.id === id);
-  if (!currentHH) {
-    currentHH = HOUSEHOLDS.find(h => CSS.escape(h.id) === escapedId);
-  }
-  if (!currentHH) return;
-  document.getElementById('m-address').textContent = currentHH.address;
-  document.getElementById('m-city').textContent = `${currentHH.city}, MD ${currentHH.zip}${currentHH.hasPhone ? ' · 📞 on file' : ''}`;
-  document.getElementById('m-members').innerHTML = currentHH.members.map(m => `<div class="member-row">${m}</div>`).join('');
-  const st = results[currentHH.id] || null;
-  ['voted','not_home','refused'].forEach(s => {
-    document.getElementById('btn-'+s).className = 'action-btn' + (st===s?' active-'+s:'');
-  });
+function openModal(idx) {
+  currentIdx = idx;
+  const h = HH[idx];
+  document.getElementById('m-address').textContent = h.address;
+  document.getElementById('m-city').textContent = `${h.city}, MD ${h.zip}${h.hasPhone?' · 📞 on file':''}`;
+  document.getElementById('m-members').innerHTML = h.members.map(m=>`<div class="member-row">${m}</div>`).join('');
+  const st = results[idx] || null;
+  document.getElementById('btn-voted').className = 'action-btn'+(st==='voted'?' sel-voted':'');
+  document.getElementById('btn-not_home').className = 'action-btn'+(st==='not_home'?' sel-not_home':'');
+  document.getElementById('btn-refused').className = 'action-btn'+(st==='refused'?' sel-refused':'');
   document.getElementById('modal').classList.add('open');
 }
 
-function closeModal(e) {
-  if (e && e.target !== document.getElementById('modal')) return;
+function closeModal() {
   document.getElementById('modal').classList.remove('open');
-  currentHH = null;
+  currentIdx = null;
 }
 
 function setStatus(status) {
-  if (!currentHH) return;
-  if (results[currentHH.id] === status) { delete results[currentHH.id]; }
-  else { results[currentHH.id] = status; }
+  if (currentIdx === null) return;
+  if (results[currentIdx] === status) { delete results[currentIdx]; }
+  else { results[currentIdx] = status; }
   saveResults();
-  ['voted','not_home','refused'].forEach(s => {
-    document.getElementById('btn-'+s).className = 'action-btn' + (results[currentHH.id]===s?' active-'+s:'');
-  });
+  const st = results[currentIdx] || null;
+  document.getElementById('btn-voted').className = 'action-btn'+(st==='voted'?' sel-voted':'');
+  document.getElementById('btn-not_home').className = 'action-btn'+(st==='not_home'?' sel-not_home':'');
+  document.getElementById('btn-refused').className = 'action-btn'+(st==='refused'?' sel-refused':'');
   updateHeader();
   renderList();
-  if (map && markers[currentHH.id]) updateMarker(currentHH.id);
+  if (map && markerLayer) refreshMapMarkers();
 }
 
-function markerColor(id) {
-  const st = results[id];
+// MAP
+function markerColor(idx) {
+  const st = results[idx];
   if (!st) return '#1a3a6b';
   if (st==='voted') return '#2d7d46';
   if (st==='not_home') return '#d68910';
   return '#c0392b';
 }
 
-function makeIcon(id) {
-  const color = markerColor(id);
+function makeIcon(idx) {
+  const c = markerColor(idx);
   return L.divIcon({
-    html: `<div style="width:12px;height:12px;border-radius:50%;background:${color};border:2px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,0.3)"></div>`,
-    className:'', iconSize:[12,12], iconAnchor:[6,6]
+    html:`<div style="width:13px;height:13px;border-radius:50%;background:${c};border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>`,
+    className:'',iconSize:[13,13],iconAnchor:[6,6]
   });
 }
 
-function updateMarker(id) { if (markers[id]) markers[id].setIcon(makeIcon(id)); }
-
-function plotMarkers() {
-  const cityCenters = {
-    'Potomac':[39.018,-77.209],'Gaithersburg':[39.143,-77.201],'Germantown':[39.175,-77.272],
-    'Rockville':[39.084,-77.153],'Clarksburg':[39.231,-77.262],'Boyds':[39.213,-77.327],
-    'Poolesville':[39.148,-77.414],'Bethesda':[38.985,-77.115],'Dickerson':[39.208,-77.447],
-    'Barnesville':[39.217,-77.367],'North Potomac':[39.071,-77.228]
-  };
-  const rng = (seed) => { let x = Math.sin(seed)*10000; return x - Math.floor(x); };
-  HOUSEHOLDS.forEach((h, i) => {
-    const center = cityCenters[h.city] || [39.1,-77.2];
-    const lat = center[0] + (rng(i*2)-0.5)*0.022;
-    const lng = center[1] + (rng(i*2+1)-0.5)*0.028;
-    const marker = L.marker([lat,lng], {icon:makeIcon(h.id)});
-    marker.on('click', () => openModal(CSS.escape(h.id)));
-    marker.bindTooltip(`<b>${h.address}</b><br>${h.city} · ${h.count} dem${h.count>1?'s':''}`, {direction:'top'});
-    marker.addTo(map);
-    markers[h.id] = marker;
+function refreshMapMarkers() {
+  markerLayer.eachLayer(m => {
+    if (m._hhIdx !== undefined) m.setIcon(makeIcon(m._hhIdx));
   });
+}
+
+async function geocodeBatch(toGeocode) {
+  // Use Nominatim to geocode addresses in small batches with delay
+  for (let i = 0; i < Math.min(toGeocode.length, 300); i++) {
+    const {idx, h} = toGeocode[i];
+    const query = encodeURIComponent(`${h.address}, ${h.city}, MD`);
+    try {
+      const r = await fetch(`https://nominatim.openstreetmap.org/search?q=${query}&format=json&limit=1&countrycodes=us`);
+      const d = await r.json();
+      if (d.length) {
+        HH[idx].lat = parseFloat(d[0].lat);
+        HH[idx].lng = parseFloat(d[0].lon);
+        // Add marker immediately
+        const marker = L.marker([HH[idx].lat, HH[idx].lng], {icon: makeIcon(idx)});
+        marker._hhIdx = idx;
+        marker.on('click', () => openModal(idx));
+        marker.bindTooltip(`<b>${h.address}</b><br>${h.city} · ${h.count} dem${h.count>1?'s':''}`,{direction:'top'});
+        marker.addTo(markerLayer);
+      }
+    } catch(e) {}
+    // Nominatim rate limit: 1 req/sec
+    await new Promise(r => setTimeout(r, 1100));
+    if (i % 10 === 0) {
+      document.getElementById('geocode-status').textContent =
+        `Geocoding addresses… ${i+1}/${Math.min(toGeocode.length,300)}`;
+    }
+  }
+  document.getElementById('geocode-status').textContent = 'All addresses loaded. Tap a pin to open.';
+  // Cache coords in localStorage
+  try {
+    const coords = {};
+    HH.forEach((h,i) => { if (h.lat) coords[i] = [h.lat,h.lng]; });
+    localStorage.setItem('d15_coords', JSON.stringify(coords));
+  } catch(e) {}
 }
 
 function initMap() {
   map = L.map('map').setView([39.09,-77.26],11);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap',maxZoom:18}).addTo(map);
-  plotMarkers();
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+    attribution:'© OpenStreetMap',maxZoom:19
+  }).addTo(map);
+  setTimeout(()=>map.invalidateSize(),100);
+
+  markerLayer = L.layerGroup().addTo(map);
+
+  // Load cached coords first
+  let cachedCoords = {};
+  try { cachedCoords = JSON.parse(localStorage.getItem('d15_coords') || '{}'); } catch(e) {}
+
+  const toGeocode = [];
+  HH.forEach((h,i) => {
+    if (cachedCoords[i]) {
+      h.lat = cachedCoords[i][0];
+      h.lng = cachedCoords[i][1];
+      const marker = L.marker([h.lat,h.lng],{icon:makeIcon(i)});
+      marker._hhIdx = i;
+      marker.on('click',()=>openModal(i));
+      marker.bindTooltip(`<b>${h.address}</b><br>${h.city} · ${h.count} dem${h.count>1?'s':''}`,{direction:'top'});
+      marker.addTo(markerLayer);
+    } else {
+      toGeocode.push({idx:i, h});
+    }
+  });
+
+  if (cachedCoords && Object.keys(cachedCoords).length > 100) {
+    document.getElementById('geocode-status').textContent =
+      `${Object.keys(cachedCoords).length} addresses loaded from cache. Tap a pin to open.`;
+  }
+
+  if (toGeocode.length > 0) {
+    document.getElementById('geocode-status').textContent =
+      `${Object.keys(cachedCoords).length} cached. Geocoding ${Math.min(toGeocode.length,300)} new addresses…`;
+    geocodeBatch(toGeocode);
+  }
 }
 
-// Load data from external JSON file
+function locateMe() {
+  if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+  navigator.geolocation.getCurrentPosition(pos => {
+    userLat = pos.coords.latitude;
+    userLng = pos.coords.longitude;
+    if (map) {
+      map.setView([userLat,userLng],14);
+      L.marker([userLat,userLng],{
+        icon: L.divIcon({
+          html:'<div style="width:14px;height:14px;border-radius:50%;background:#f0c040;border:3px solid #1a3a6b;box-shadow:0 0 0 3px rgba(26,58,107,.2)"></div>',
+          className:'',iconSize:[14,14],iconAnchor:[7,7]
+        })
+      }).addTo(map).bindPopup('You are here').openPopup();
+    }
+    document.getElementById('sort-mode').value = 'nearest';
+    renderList();
+  }, () => alert('Could not get location'));
+}
+
 async function init() {
   loadResults();
   try {
-    const resp = await fetch('d15_households.json');
-    HOUSEHOLDS = await resp.json();
+    const r = await fetch('d15_households.json');
+    HH = await r.json();
   } catch(e) {
-    document.getElementById('loading-state').innerHTML = '<div style="color:#c0392b;padding:24px;text-align:center">⚠ Could not load household data.<br><small>Make sure d15_households.json is in the same folder as this file.</small></div>';
+    document.getElementById('loading-state').innerHTML =
+      '<div style="color:#c0392b;padding:24px;text-align:center">⚠ Could not load d15_households.json</div>';
     return;
   }
   document.getElementById('loading-state').style.display = 'none';
   document.getElementById('hh-list').style.display = 'flex';
+  document.getElementById('result-info').style.display = 'block';
   initFilters();
   renderList();
   updateHeader();
